@@ -9,7 +9,7 @@ app.use(express.json());
 
 const exphbs = require(`express-handlebars`);
 
-app.use(`handlebars`, exphbs({ defaultLayout: `main` }));
+app.engine(`handlebars`, exphbs({ defaultLayout: `main` }));
 app.set(`view engine`, `handlebars`);
 
 //Import the routes from controller
