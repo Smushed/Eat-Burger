@@ -5,6 +5,7 @@ const router = express.Router();
 router.get(`/`, (req, res) => {
     //Basic functions to show all the burgers currently in the database
     burger.show((data) => {
+        //Parses the data to return the the app
         const burgerObject = {
             burgers: data
         };
