@@ -7,7 +7,10 @@ const burger = {
             callBack(data)
         });
     },
-    create: (callBack) => {
+    create: (columns, value, callBack) => {
+        orm.insertOne(columns, value, (res) => {
+            callBack(res);
+        });
     }
 };
 

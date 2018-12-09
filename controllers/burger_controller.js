@@ -16,7 +16,16 @@ router.get(`/`, (req, res) => {
 });
 
 router.post(`/api/burgers`, (req, res) => {
-    burger.create()
+    burger.create([
+        //Passes in the columns to be filled in
+        "burger_name", "devoured"
+    ], [
+            //Passes in the data name of the burger and hard coded that it's not devoured
+            req.body.burger_name, 0
+        ], result => {
+            //Gets the new ID when the result is returned
+            res.json({ id: result.insertId })
+        })
 });
 
 module.exports = router;

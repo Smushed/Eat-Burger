@@ -8,8 +8,13 @@ const orm = {
             callBack(data);
         });
     },
-    insertOne: () => {
-
+    insertOne: (columns, value, callBack) => {
+        //Columns comes in as an array which we then change to a string to query on
+        const queryString = `INSERT INTO burgers (${columns.toString()}) VALUES (?, ?)`;
+        connection.query(queryString, value, (err, result) => {
+            if (err) { throw err };
+            callBack(result);
+        });
     },
     updateOne: () => {
 
